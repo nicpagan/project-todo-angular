@@ -27,19 +27,14 @@ export function todoReducer(
         case TodoActions.ADD_TODO:
             return {
                 ...state,
-                todos: []
-            }
-        case TodoActions.ADD_TODO_SUCCESS:
-            return {
-                ...state,
                 todos: [...state.todos, action.payload]
             }
-        case TodoActions.UPDATE_TODO:
+        
+        case TodoActions.ADD_TODO_SUCCESS:
             return {
-                ...state,
-                todos: []
-            };
-        case TodoActions.UPDATE_TODO_SUCCESS:
+                ...state
+            }
+        case TodoActions.UPDATE_TODO:
             const todoList: Todo[] = state.todos.map((todo: Todo) => {
                 if (todo.id === action.payload.id) {
                     return new Todo(action.payload.message, action.payload.id, todo.completed)
@@ -51,17 +46,22 @@ export function todoReducer(
                 ...state,
                 todos: todoList
             };
-        case TodoActions.DELETE_TODO:
+       
+        case TodoActions.UPDATE_TODO_SUCCESS:
             return {
-                ...state,
-                todos: []
+                ...state
             };
-        case TodoActions.DELETE_TODO_SUCCESS:
+        case TodoActions.DELETE_TODO:
             return {
                 ...state,
                 todos: state.todos.filter((todo) => {
                     return todo.id !== action.payload.id
                 })
+            };
+        
+        case TodoActions.DELETE_TODO_SUCCESS:
+            return {
+                ...state
             };
         default:
             return state;

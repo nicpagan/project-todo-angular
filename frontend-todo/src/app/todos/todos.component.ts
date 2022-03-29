@@ -26,14 +26,9 @@ export class TodosComponent implements OnInit {
   ngOnInit(): void {
     this.todos = this.store.select('todos')
 
-    // this.store.select('todos').subscribe((responseData) => {
-    //   this.todos = responseData;
-    // })
-
     this.store.dispatch(new TodoActions.LoadTodo());
 
   }
-
 
   // OnSubmit method
   onSubmit(form: NgForm) {
@@ -55,12 +50,11 @@ export class TodosComponent implements OnInit {
   }
 
   // method to delete todo
-  onDeleteClicked(id: number) {
-    this.store.dispatch(new TodoActions.DeleteTodo({ id: id }))
+  onDeleteClicked(todo: Todo) {
+    this.store.dispatch(new TodoActions.DeleteTodo(todo))
   }
 
   // method for editing todo
-  // MAKE THIS WORK!!!!
   onEditClicked(id: number, todo: Todo) {
     let dialogRef = this.dialog.open(EditTodoComponent, {
       width: '700',

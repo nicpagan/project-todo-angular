@@ -45,7 +45,7 @@
             *ngFor="let todo of (todos | async)?.todos"
             [todo]="todo"
             (todoClicked)="onTodoClicked(todo)"
-            (deleteClicked)="onDeleteClicked($event)"
+            (deleteClicked)="onDeleteClicked(todo)"
             (editClicked)="onEditClicked($event, todo)"
           ></app-todo-item>
         </div>
