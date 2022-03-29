@@ -1,0 +1,55 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="cards">
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="90%" fxFlex.md="66.6667%" fxFlex.gt-md="50%">
+      <!-- Todo input header -->
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <mat-card class="header">
+          <mat-card-header fxLayoutAlign="center">
+            <mat-card-title>
+              <h1 class="custom-shadow">Todos</h1>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <h2 class="custom-shadow">Add new todo:</h2>
+            <mat-form-field appearance="fill">
+              <mat-label>Enter new todo</mat-label>
+              <input
+                #todoTextField="ngModel"
+                ngModel
+                required
+                minlength="2"
+                name="text"
+                matInput
+                placeholder="Enter text here"
+              />
+            </mat-form-field>
+            <mat-hint fxLayout="column">
+              (todo must be longer than 2 characters)
+            </mat-hint>
+
+            <!-- button -->
+            <div fxLayout="row" fxLayoutAlign="center">
+              <button type="submit" mat-raised-button color="basic">
+                <mat-icon>add</mat-icon>
+                Add
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </form>
+
+      <!-- todo-item child component -->
+      <section class="section">
+        <div class="container">
+          <app-todo-item
+            *ngFor="let todo of (todos | async)!.todos!"
+            [todo]="todo"
+            (todoClicked)="onTodoClicked(todo)"
+            (deleteClicked)="onDeleteClicked($event)"
+            (editClicked)="onEditClicked($event, todo)"
+          ></app-todo-item>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

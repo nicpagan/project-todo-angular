@@ -1,0 +1,30 @@
+.main-div {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  margin-top: 20px;
+  background-image: linear-gradient(violet, lightblue);
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+
+.custom-shadow {
+  text-shadow: 2px 3px rgb(0, 0, 0);
+}
+
+button {
+  color: black;
+}
+
+mat-form-field {
+  width: 60%;
+}
+
+mat-hint {
+  margin-bottom: 4px;
+}

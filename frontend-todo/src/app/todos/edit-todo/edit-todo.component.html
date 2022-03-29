@@ -1,0 +1,38 @@
+<h2>Edit Todo</h2>
+<div mat-dialog-content>
+  <!-- edit todo form -->
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter text here</mat-label>
+      <input
+        #todoTextField="ngModel"
+        [ngModel]="todo.message"
+        required
+        minlength="2"
+        name="text"
+        matInput
+        placeholder="Enter text here"
+      />
+    </mat-form-field>
+
+    <!-- dialog buttons -->
+    <div
+      class="form-buttons"
+      fxLayout="row"
+      fxLayoutAlign="center"
+      fxLayoutGap="4px"
+    >
+      <div class="close-button">
+        <button mat-stroked-button color="warn" type="button" (click)="close()">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+
+      <div class="submit-button">
+        <button mat-stroked-button color="primary" type="submit">
+          <mat-icon>save</mat-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
