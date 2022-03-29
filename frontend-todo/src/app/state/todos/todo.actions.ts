@@ -22,10 +22,10 @@ export class LoadTodo implements Action {
 
     constructor() { }
 }
-export class LoadTodoSuccess implements Action{
+export class LoadTodoSuccess implements Action {
     readonly type = LOAD_TODO_SUCCESS;
-    
-    constructor(public payload: Todo[]) {}
+
+    constructor(public payload: Todo[]) { }
 };
 
 //////
@@ -56,24 +56,24 @@ export class UpdateTodoSuccess implements Action {
 export class DeleteTodo implements Action {
     readonly type = DELETE_TODO;
 
-    constructor(public payload: {id: number}) {}
+    constructor(public payload: { id: number }) { }
 }
 export class DeleteTodoSuccess implements Action {
     readonly type = DELETE_TODO_SUCCESS;
 
-    constructor(public payload: {id: number}) {}
+    constructor(public payload: { id: number }) { }
 }
 
 
-export type TodoActions = 
-    | LoadTodo 
-    | LoadTodoSuccess 
-    
-    | AddTodo 
+export type TodoActions =
+    | LoadTodo
+    | LoadTodoSuccess
+
+    | AddTodo
     | AddTodoSuccess
-    
-    | UpdateTodo 
-    | UpdateTodoSuccess 
-    
-    | DeleteTodo 
+
+    | UpdateTodo
+    | UpdateTodoSuccess
+
+    | DeleteTodo
     | DeleteTodoSuccess

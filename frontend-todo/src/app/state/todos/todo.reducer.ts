@@ -42,7 +42,7 @@ export function todoReducer(
         case TodoActions.UPDATE_TODO_SUCCESS:
             const todoList: Todo[] = state.todos.map((todo: Todo) => {
                 if (todo.id === action.payload.id) {
-                    return new Todo(action.payload.message)
+                    return new Todo(action.payload.message, action.payload.id, todo.completed)
                 } else {
                     return todo
                 }

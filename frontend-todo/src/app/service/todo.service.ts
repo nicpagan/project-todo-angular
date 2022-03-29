@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Todo } from './todo.model';
 
-import { Store } from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root',
@@ -40,29 +39,3 @@ export class DataService {
     );
   }
 }
-
-
-
-// setTodos(todos: Todo[]){
-  //   this.todos = todos;
-  //   this.todosChanged.next(this.todos.slice())
-  // }
-
-  // getAllTodos() {
-  //   return this.todos.slice()
-  // }
-
-  // addTodo(todo: Todo) {
-  //   this.todos.push(todo);
-  //   this.todosChanged.next(this.todos.slice())
-  // }
-
-  // updateTodo(id: number, todo: Todo) {
-  //   this.todos[id] = todo;
-  //   this.todosChanged.next(this.todos.slice())
-  // }
-
-  // deleteTodo(id: number){
-  //   this.todos.splice(id, 1);
-  //   this.todosChanged.next(this.todos.slice())
-  // }
