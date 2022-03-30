@@ -8,7 +8,6 @@ export interface AppState {
     todos: TodoState;
 };
 
-
 export const reducers: ActionReducerMap<AppState, any> = {
     todos: todoReducer
 };

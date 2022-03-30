@@ -9,7 +9,6 @@ const initialState = {
     todos: []
 };
 
-
 export function todoReducer(
     state: TodoState = initialState,
     action: TodoActions.TodoActions): TodoState {
@@ -26,7 +25,7 @@ export function todoReducer(
             }
         case TodoActions.ADD_TODO:
             return {
-                ...state
+                ...state,
             }
         case TodoActions.ADD_TODO_SUCCESS:
             return {
@@ -35,7 +34,7 @@ export function todoReducer(
             }
         case TodoActions.UPDATE_TODO:
             return {
-                ...state
+                ...state,
             };
         case TodoActions.UPDATE_TODO_SUCCESS:
             const todoList: Todo[] = state.todos.map((todo: Todo) => {
@@ -51,7 +50,7 @@ export function todoReducer(
             };
         case TodoActions.DELETE_TODO:
             return {
-                ...state
+                ...state,
             };
         case TodoActions.DELETE_TODO_SUCCESS:
             return {

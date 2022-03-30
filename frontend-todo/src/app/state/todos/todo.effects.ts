@@ -14,44 +14,44 @@ export class TodoEffects {
         return this.actions$.pipe(
             ofType(TodoActions.LOAD_TODO),
             switchMap(() => {
-                return this.dataService.getAllTodos()
+                return this.dataService.getAllTodos().pipe(
+                    map((todos: Todo[]) => {
+                        return new TodoActions.LoadTodoSuccess(todos)
+                    }))
             }),
-            map((todos: Todo[]) => {
-                return new TodoActions.LoadTodoSuccess(todos)
-            })
         )
     });
 
     addTodo$: Observable<Action> = createEffect(() => {
         return this.actions$.pipe(
             ofType(TodoActions.ADD_TODO),
-            switchMap((action: TodoActions.AddTodo) =>{
+            switchMap((action: TodoActions.AddTodo) => {
                 // console.log("ACTION", action.payload)
                 return this.dataService.addTodo(action.payload)
             }),
-            map((todo) => {return new TodoActions.AddTodoSuccess(todo)})
+            map((todo) => { return new TodoActions.AddTodoSuccess(todo) })
         )
     });
 
     updateTodo$: Observable<Action> = createEffect(() => {
         return this.actions$.pipe(
             ofType(TodoActions.UPDATE_TODO),
-            switchMap((action: TodoActions.UpdateTodo) =>{
+            switchMap((action: TodoActions.UpdateTodo) => {
                 // console.log("ACTION", action.payload)
                 return this.dataService.updateTodo(action.payload.id!, action.payload)
             }),
-            map((todo) => {return new TodoActions.UpdateTodoSuccess(todo)})
+            map((todo) => { return new TodoActions.UpdateTodoSuccess(todo) })
         )
     });
 
     deleteTodo$: Observable<Action> = createEffect(() => {
         return this.actions$.pipe(
             ofType(TodoActions.DELETE_TODO),
-            switchMap((action: TodoActions.DeleteTodo) =>{
+            switchMap((action: TodoActions.DeleteTodo) => {
                 // console.log("ACTION", action.payload)
                 return this.dataService.deleteTodo(action.payload.id!)
             }),
-            map((todo) => {return new TodoActions.DeleteTodoSuccess(todo)})
+            map((todo) => { return new TodoActions.DeleteTodoSuccess(todo) })
         )
     });
 

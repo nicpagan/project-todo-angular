@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
 import { Todo } from '../service/todo.model';
-import { Store, select } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as TodoActions from "../state/todos/todo.actions";
 
@@ -25,6 +25,9 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
     this.todos = this.store.select('todos')
+    this.store.subscribe((state) => {
+      console.log('state', state)
+    })
 
     this.store.dispatch(new TodoActions.LoadTodo());
 
@@ -44,14 +47,15 @@ export class TodosComponent implements OnInit {
     form.reset();
   }
 
-  // todo onClick method 'completed' toggle
-  onTodoClicked(todo: Todo) {
-    todo.completed = !todo.completed;
-  }
+  // // todo onClick method 'completed' toggle
+  // onTodoClicked(todo: Todo) {
+  //   todo.completed = !todo.completed;
+  // }
 
   // method to delete todo
   onDeleteClicked(todo: Todo) {
     this.store.dispatch(new TodoActions.DeleteTodo(todo))
+
   }
 
   // method for editing todo

@@ -44,10 +44,10 @@
           <app-todo-item
             *ngFor="let todo of (todos | async)?.todos"
             [todo]="todo"
-            (todoClicked)="onTodoClicked(todo)"
             (deleteClicked)="onDeleteClicked(todo)"
             (editClicked)="onEditClicked($event, todo)"
           ></app-todo-item>
+          <!-- (todoClicked)="onTodoClicked(todo)" -->
         </div>
       </section>
     </div>
