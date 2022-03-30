@@ -1,6 +1,6 @@
 import { Actions, ofType, createEffect } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
-import { mergeMap, switchMap, map, Observable, tap } from "rxjs";
+import { switchMap, map, Observable} from "rxjs";
 import { DataService } from "src/app/service/todo.service";
 import * as TodoActions from './todo.actions'
 import { Todo } from "src/app/service/todo.model";

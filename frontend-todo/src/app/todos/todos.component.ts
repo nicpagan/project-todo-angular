@@ -25,9 +25,9 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
     this.todos = this.store.select('todos')
-    this.store.subscribe((state) => {
-      console.log('state', state)
-    })
+    // this.store.subscribe((state) => {
+    //   console.log('state', state)
+    // })
 
     this.store.dispatch(new TodoActions.LoadTodo());
 
