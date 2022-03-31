@@ -1,6 +1,6 @@
 import { Actions, ofType, createEffect } from "@ngrx/effects";
 import { Injectable } from "@angular/core";
-import { switchMap, map, Observable} from "rxjs";
+import { switchMap, map, Observable } from "rxjs";
 import { DataService } from "src/app/service/todo.service";
 import * as TodoActions from './todo.actions'
 import { Todo } from "src/app/service/todo.model";
@@ -26,7 +26,6 @@ export class TodoEffects {
         return this.actions$.pipe(
             ofType(TodoActions.ADD_TODO),
             switchMap((action: TodoActions.AddTodo) => {
-                // console.log("ACTION", action.payload)
                 return this.dataService.addTodo(action.payload)
             }),
             map((todo) => { return new TodoActions.AddTodoSuccess(todo) })
@@ -37,7 +36,6 @@ export class TodoEffects {
         return this.actions$.pipe(
             ofType(TodoActions.UPDATE_TODO),
             switchMap((action: TodoActions.UpdateTodo) => {
-                // console.log("ACTION", action.payload)
                 return this.dataService.updateTodo(action.payload.id!, action.payload)
             }),
             map((todo) => { return new TodoActions.UpdateTodoSuccess(todo) })
@@ -48,7 +46,6 @@ export class TodoEffects {
         return this.actions$.pipe(
             ofType(TodoActions.DELETE_TODO),
             switchMap((action: TodoActions.DeleteTodo) => {
-                // console.log("ACTION", action.payload)
                 return this.dataService.deleteTodo(action.payload.id!)
             }),
             map((todo) => { return new TodoActions.DeleteTodoSuccess(todo) })

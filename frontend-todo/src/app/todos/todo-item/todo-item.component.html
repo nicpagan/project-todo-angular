@@ -1,27 +1,15 @@
 <!-- todo list container -->
 <div class="todo-item" fxLayout="column">
-  <mat-card
-    class="card"
-    fxFlex="80"
-    fxLayoutAlign="center center"
-  >
+  <mat-card class="card" fxFlex="80" fxLayoutAlign="center center">
     <!-- checkbox -->
-    <div
-      fxFlex="20"
-      fxLayoutAlign="start"
-    >
+    <div fxFlex="30" fxLayoutAlign="start center">
       <mat-checkbox>
         <div>{{ todo.message }}</div>
       </mat-checkbox>
     </div>
 
-    <div
-      fxLayoutAlign="start center"
-      fxFlexOffset="20"
-      fxLayoutGap="3px"
-    >
-
     <!-- buttons -->
+    <div fxLayoutAlign="start" fxFlexOffset="10" fxLayoutGap="3px">
       <button
         mat-stroked-button
         color="warn"
@@ -37,6 +25,5 @@
         <mat-icon>edit</mat-icon>
       </button>
     </div>
-
   </mat-card>
 </div>

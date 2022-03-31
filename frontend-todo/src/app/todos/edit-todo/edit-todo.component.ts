@@ -27,10 +27,7 @@ export class EditTodoComponent implements OnInit {
       return alert('Form is invalid! Todo must be longer than 2 characters.');
     }
 
-    // closing with updated todo
-    //ILLEGAL!!!!!!!!! CANNOT ASSIGN VALUES LIKE THIS
-    // this.todo.message = form.value.text;
-    this.dialogRef.close({message: form.value.text});
+    this.dialogRef.close({ message: form.value.text });
   }
 
   close() {
