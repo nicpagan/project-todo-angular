@@ -3,6 +3,11 @@ mat-list {
   justify-content: center;
 }
 
+.todo-item{
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 :host::ng-deep.mat-checkbox-layout{
   white-space: normal !important;
   }
