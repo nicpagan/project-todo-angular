@@ -1,22 +1,27 @@
-<!-- todo list -->
-<div class="todo-item">
-  <mat-card fxLayout="row" fxLayoutAlign="center center">
-    <!-- setting click event on whole todo. setting class to completed with property binding -->
-    <div fxLayout="column" fxLayoutAlign="space-evenly start">
-      <mat-checkbox
-        (click)="onTodoClicked()"
-        [class.completed]="todo.completed"
-      >
-        <span>{{ todo.message }}</span>
+<!-- todo list container -->
+<div class="todo-item" fxLayout="column">
+  <mat-card
+    class="card"
+    fxFlex="80"
+    fxLayoutAlign="center center"
+  >
+    <!-- checkbox -->
+    <div
+      fxFlex="20"
+      fxLayoutAlign="start"
+    >
+      <mat-checkbox>
+        <div>{{ todo.message }}</div>
       </mat-checkbox>
     </div>
 
     <div
-      class="list-button"
-      fxLayout="row"
-      fxLayoutAlign="end start"
+      fxLayoutAlign="start center"
+      fxFlexOffset="20"
       fxLayoutGap="3px"
     >
+
+    <!-- buttons -->
       <button
         mat-stroked-button
         color="warn"
@@ -32,5 +37,6 @@
         <mat-icon>edit</mat-icon>
       </button>
     </div>
+
   </mat-card>
 </div>

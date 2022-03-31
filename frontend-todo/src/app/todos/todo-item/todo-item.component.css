@@ -1,20 +1,4 @@
+
 mat-list {
   justify-content: center;
-}
-
-.completed {
-  color: hsl(325, 76%, 50%);
-  text-decoration: line-through;
-}
-
-.list-button {
-  margin-left: 3rem;
-}
-
-.right {
-  float: right;
-}
-
-.left {
-  float: left;
 }

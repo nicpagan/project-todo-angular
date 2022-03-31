@@ -22,16 +22,16 @@ export function todoReducer(
             return {
                 ...state,
                 todos: action.payload
-            }
+            };
         case TodoActions.ADD_TODO:
             return {
                 ...state,
-            }
+            };
         case TodoActions.ADD_TODO_SUCCESS:
             return {
                 ...state,
                 todos: [...state.todos, action.payload]
-            }
+            };
         case TodoActions.UPDATE_TODO:
             return {
                 ...state,

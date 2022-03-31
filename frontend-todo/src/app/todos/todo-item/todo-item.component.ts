@@ -10,17 +10,12 @@ export class TodoItemComponent implements OnInit {
   // @input to pass in a todo from parent component todo.component.html
   @Input() todo: Todo
   // @output so we can pass click event to parent
-  @Output() todoClicked: EventEmitter<void> = new EventEmitter();
   @Output() editClicked: EventEmitter<number> = new EventEmitter();
   @Output() deleteClicked: EventEmitter<number> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void { }
-
-  onTodoClicked() {
-    this.todoClicked.emit();
-  }
 
   onDeleteClicked(id: number) {
     this.deleteClicked.emit(id);

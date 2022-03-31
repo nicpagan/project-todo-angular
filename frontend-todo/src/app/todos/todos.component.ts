@@ -21,14 +21,11 @@ export class TodosComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private store: Store<{ todos: { todos: Todo[] } }>) { }
+    private store: Store<{ todos: { todos: Todo[] } }>) {
+      this.todos = this.store.select('todos')
+     }
 
   ngOnInit(): void {
-    this.todos = this.store.select('todos')
-    // this.store.subscribe((state) => {
-    //   console.log('state', state)
-    // })
-
     this.store.dispatch(new TodoActions.LoadTodo());
 
   }
@@ -47,15 +44,9 @@ export class TodosComponent implements OnInit {
     form.reset();
   }
 
-  // // todo onClick method 'completed' toggle
-  // onTodoClicked(todo: Todo) {
-  //   todo.completed = !todo.completed;
-  // }
-
   // method to delete todo
   onDeleteClicked(todo: Todo) {
     this.store.dispatch(new TodoActions.DeleteTodo(todo))
-
   }
 
   // method for editing todo
